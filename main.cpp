@@ -1,57 +1,62 @@
-//write a class book with three data members BOOkID, Pages
-//and price it also contains all following member function.
-//the get() function is used to input value
-//the show() function is used to display values
-//the set() fucntion is used to set the values of data
-//memberes using parametes
-//the getPrice() function is used to return the value of price
-// the program should create two objects of the class and input values for these objects, the program displays the details of the most costly book.
+//write a class Result that contains roll no,
+//name and marks of three students. the marks are stored in an array of integers. The class also contains the following member functions.
+//the input() function is used to input the values in data member.
+//the show() function is used to displays the value of data members.
+//the total() function returns the total marks of a student.
+//the avg() function returns the average marks of a student.
+//the program should create an object of the class and call the member functions.
 
 #include<iostream>
 using namespace std;
-
-class Book
+ class Result
 {
 private:
-    int BookID,Pages;
-    float Price;
+    int rno, marks[3];
+    char name[50];
 public:
-    void get()
+    void input()
     {
-        cout<<"Enter BOOk ID: ";
-        cin>>BookID;
-        cout<<"Enter pages: ";
-        cin>>Pages;
-        cout<<"Enter price: ";
-        cin>>Price;
+        cout<<"Enter your Roll No: ";
+        cin>>rno;
+        cout<<"Enter your name: ";
+        cin>>name;
+        for(int i =0; i<3; i++)
+        {
+            cout<<"Enter marks ["<<i+1<<"] ";
+            cin>>marks[i];
+        }
     }
     void show()
     {
-        cout<<"BookID = "<<BookID<<endl;
-        cout<<"Pages = "<<Pages<<endl;
-        cout<<"Price = "<<Price<<endl;
+        cout<<"\nYour Roll No = "<<rno<<endl;
+        cout<<"Your Name is = "<<name<<endl;
+        for(int i=0; i<3; i++)
+        cout<<"Marks ["<<i+1<<"] is "<<marks[i]<<endl;
     }
-    void set(int id, int pg, float pr)
+    int total()
     {
-        BookID = id;
-        Pages = pg;
-        Price = pr;
+        int t=0;
+        for(int i=0; i<3; i++)
+            t=t+marks[i];
+        return t;
     }
-    int getPrice()
+    
+    float avg()
     {
-        return Price;
+        int t=0;
+        for(int i=0; i<3; i++)
+            t=t+marks[i];
+        return t/3.0;
     }
 };
 
 int main()
 {
-    Book b1,b2;
-    b1.get();
-    b2.set(2,320,150.75);
-    cout<<endl<<"The detail of most costly book is as follows: "<<endl;
-    if(b1.getPrice() > b2.getPrice())
-        b1.show();
-    else
-        b2.show();
+    Result r;
+    r.input();
+    r.show();
+    cout<<"\nTotal marks = "<<r.total()<<endl;
+    cout<<"Average marks = "<<r.avg()<<endl<<endl;
     return 0;
 }
+
