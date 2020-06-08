@@ -1,62 +1,25 @@
-//write a class Result that contains roll no,
-//name and marks of three students. the marks are stored in an array of integers. The class also contains the following member functions.
-//the input() function is used to input the values in data member.
-//the show() function is used to displays the value of data members.
-//the total() function returns the total marks of a student.
-//the avg() function returns the average marks of a student.
-//the program should create an object of the class and call the member functions.
+//program 13.7 page no 402
+//write a class that displays a simple message on the screen whenever an object of that class is created.
 
 #include<iostream>
 using namespace std;
- class Result
+
+class Hello
 {
 private:
-    int rno, marks[3];
-    char name[50];
+    int n;
 public:
-    void input()
+    Hello()
     {
-        cout<<"Enter your Roll No: ";
-        cin>>rno;
-        cout<<"Enter your name: ";
-        cin>>name;
-        for(int i =0; i<3; i++)
-        {
-            cout<<"Enter marks ["<<i+1<<"] ";
-            cin>>marks[i];
-        }
-    }
-    void show()
-    {
-        cout<<"\nYour Roll No = "<<rno<<endl;
-        cout<<"Your Name is = "<<name<<endl;
-        for(int i=0; i<3; i++)
-        cout<<"Marks ["<<i+1<<"] is "<<marks[i]<<endl;
-    }
-    int total()
-    {
-        int t=0;
-        for(int i=0; i<3; i++)
-            t=t+marks[i];
-        return t;
-    }
-    
-    float avg()
-    {
-        int t=0;
-        for(int i=0; i<3; i++)
-            t=t+marks[i];
-        return t/3.0;
+        cout<<"Hi Friends you are watching Codes4U: "<<endl;
     }
 };
 
 int main()
 {
-    Result r;
-    r.input();
-    r.show();
-    cout<<"\nTotal marks = "<<r.total()<<endl;
-    cout<<"Average marks = "<<r.avg()<<endl<<endl;
+    Hello x,y;
+    cout<<endl;
     return 0;
+    
 }
 
